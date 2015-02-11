@@ -107,6 +107,56 @@ class JNegateOp extends JUnaryExpression {
 
 }
 
+
+/**
+ * The AST node for a the Unary Bitwise Complement (~) expression.
+ */
+
+class JUBCompOP extends JUnaryExpression {
+
+    /**
+     * Construct an AST for a UnaryBitwise Complement expression given its line number, and
+     * the operand.
+     * 
+     * @param line
+     *            line in which the ~ expression occurs in the source
+     *            file.
+     * @param arg
+     *            the operand.
+     */
+	
+    public JUBCompOP(int line, JExpression arg) {
+        super(line, "~", arg);
+    }
+    
+    public JExpression analyze(Context context) {
+        arg = (JExpression) arg.analyze(context);
+        arg.type().mustMatchExpected(line(), Type.INT);
+        type = Type.INT;
+        return this;
+    }
+
+    
+    /**
+     * Generating code for the negation operation involves generating code for
+     * the operand, and then the negation instruction.
+     * 
+     * @param output
+     *            the code emitter (basically an abstraction for producing the
+     *            .class file).
+     */
+
+    public void codegen(CLEmitter output) {
+        arg.codegen(output);
+        // TODO generate x & 0dFFF
+        output.addNoArgInstruction(INEG);
+    }
+}
+    
+    
+    
+    
+
 /**
  * The AST node for a logical NOT (!) expression.
  */

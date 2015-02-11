@@ -86,11 +86,13 @@ additiveExpression ::= multiplicativeExpression // level 3
                          {(PLUS | MINUS) multiplicativeExpression}
 
 multiplicativeExpression ::= unaryExpression       // level 2
-                               {(STAR | DIV) unaryExpression}
+                               {(STAR | DIV | LSHIFT) unaryExpression}
 
 unaryExpression ::= INC unaryExpression  // level 1
                   | MINUS unaryExpression
+                  | UBCOMP unaryExpression 
                   | simpleUnaryExpression
+                  
 
 simpleUnaryExpression ::= LNOT unaryExpression
                         | LPAREN basicType RPAREN unaryExpression //casted

@@ -151,6 +151,10 @@ class Scanner {
         case '!':
             nextCh();
             return new TokenInfo(LNOT, line);
+        case '~':
+        	// ADD UNARY BITWISE COMPLEMENT
+        	nextCh();
+        	return new TokenInfo(UBCOMP, line);
         case '*':
             nextCh();
             return new TokenInfo(STAR, line);
