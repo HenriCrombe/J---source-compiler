@@ -138,7 +138,7 @@ class JUBCompOP extends JUnaryExpression {
 
     
     /**
-     * Generating code for the negation operation involves generating code for
+     * Generating code for the ~ operation involves generating code for
      * the operand, and then the negation instruction.
      * 
      * @param output
