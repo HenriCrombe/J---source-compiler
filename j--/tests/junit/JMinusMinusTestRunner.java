@@ -18,8 +18,10 @@ public class JMinusMinusTestRunner {
         TestSuite suite = new TestSuite();
         //Add our tests exectution HERE
         suite.addTestSuite(DivisionTest.class);
-        //End
+
         suite.addTestSuite(LBitShiftTest.class);
+        //suite.addTestSuite(UnaryBitCompTest.class);
+        //End
         suite.addTestSuite(HelloWorldTest.class);
         suite.addTestSuite(FactorialTest.class);
         suite.addTestSuite(GCDTest.class);

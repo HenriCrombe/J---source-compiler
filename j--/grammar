@@ -83,7 +83,7 @@ relationalExpression ::= additiveExpression       // level 5
                            | INSTANCEOF referenceType]
 
 additiveExpression ::= multiplicativeExpression // level 3
-                         {(PLUS | MINUS | LSHIFT) multiplicativeExpression}
+                         {(PLUS | MINUS) multiplicativeExpression}
 
 multiplicativeExpression ::= unaryExpression       // level 2
                                {(STAR | DIV) unaryExpression}
