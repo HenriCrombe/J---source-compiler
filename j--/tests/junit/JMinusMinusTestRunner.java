@@ -19,7 +19,7 @@ public class JMinusMinusTestRunner {
         //Add our tests exectution HERE
         suite.addTestSuite(DivisionTest.class);
         //End
-        
+        suite.addTestSuite(LBitShiftTest.class);
         suite.addTestSuite(HelloWorldTest.class);
         suite.addTestSuite(FactorialTest.class);
         suite.addTestSuite(GCDTest.class);

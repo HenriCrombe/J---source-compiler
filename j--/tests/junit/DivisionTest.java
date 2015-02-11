@@ -19,6 +19,6 @@ public class DivisionTest extends TestCase {
 		this.assertEquals(division.divide(42, 1), 42);
 		// 127/3 = 42.333 -> Prob when testing; 
 		// TODO: find why x) !
-//		this.assertEquals(division.divide(127, 3), 42);
+		this.assertEquals(division.divide(127, 3), 42);
 	}
 }

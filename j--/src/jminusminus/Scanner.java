@@ -190,7 +190,13 @@ class Scanner {
             if (ch == '=') {
                 nextCh();
                 return new TokenInfo(LE, line);
-            } else {
+            }
+            else if(ch == '<'){
+            	//Our left bitshift is scanned !
+            	nextCh();
+            	return new TokenInfo(LSHIFT, line);
+            }
+            else {
                 reportScannerError("Operator < is not supported in j--.");
                 return getNextToken();
             }

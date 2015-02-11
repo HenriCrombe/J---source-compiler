@@ -1104,7 +1104,8 @@ public class Parser {
                 lhs = new JSubtractOp(line, lhs, multiplicativeExpression());
             } else if (have(PLUS)) {
                 lhs = new JPlusOp(line, lhs, multiplicativeExpression());
-            } else {
+            }
+            else {
                 more = false;
             }
         }
@@ -1116,7 +1117,7 @@ public class Parser {
      * 
      * <pre>
      *   multiplicativeExpression ::= unaryExpression  // level 2
-     *                                  {(STAR | DIV) unaryExpression}
+     *                                  {(STAR | DIV | <<) unaryExpression}
      * </pre>
      * 
      * @return an AST for a multiplicativeExpression.
@@ -1129,9 +1130,10 @@ public class Parser {
         while (more) {
             if (have(STAR)) {
                 lhs = new JMultiplyOp(line, lhs, unaryExpression());
-            } 
-            else if (have(DIV)) {
+            } else if (have(DIV)) {
             	lhs = new JDivideOp(line, lhs, unaryExpression());
+            } else if (have(LSHIFT)) {
+            	lhs = new JLBitShiftOp(line,lhs,unaryExpression());
             }
             else {
                 more = false;
