@@ -148,11 +148,10 @@ class JUBCompOp extends JUnaryExpression {
 
     public void codegen(CLEmitter output) {
     
-    	int max = 2147483647;
-    	output.addLDCInstruction(max);
     	arg.codegen(output);
+    	output.addNoArgInstruction(INEG);
+    	output.addLDCInstruction(1);
     	output.addNoArgInstruction(ISUB);
-    	
     }
 }
     

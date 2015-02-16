@@ -16,10 +16,10 @@ public class UnaryBitCompTest extends TestCase {
 	
 	public void testUBitComp() {
 		
-		this.assertEquals(unaryBitwiseComp.doUnaryBitwiseComplement(2147483647),0);
-		this.assertEquals(unaryBitwiseComp.doUnaryBitwiseComplement(1),2147483646);
-		this.assertEquals(unaryBitwiseComp.doUnaryBitwiseComplement(0),2147483647);
-		this.assertEquals(unaryBitwiseComp.doUnaryBitwiseComplement(2),2147483645);
+		this.assertEquals(unaryBitwiseComp.doUnaryBitwiseComplement(0),-1);
+		this.assertEquals(unaryBitwiseComp.doUnaryBitwiseComplement(1),-2);
+		this.assertEquals(unaryBitwiseComp.doUnaryBitwiseComplement(2),-3);
+		this.assertEquals(unaryBitwiseComp.doUnaryBitwiseComplement(3),-4);
 
 	}
 }
