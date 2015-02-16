@@ -1428,6 +1428,27 @@ public class CLEmitter {
         mInstructionAfterLabel = true;
     }
 
+    
+    
+    
+    
+    
+    public void addIBitCompInstruction(int index, int constVal) {
+       
+        CLLoadStoreInstruction wideInstr = new CLLoadStoreInstruction(WIDE,
+                    mPC++);
+        mCode.add(wideInstr);
+    
+        CLArithmeticInstruction instr = new CLArithmeticInstruction(IINC,
+                mPC++, index, constVal, true);
+        
+        mPC += instr.operandCount();
+        mCode.add(instr);
+        mInstructionAfterLabel = true;
+    }
+    
+    
+    
     /**
      * Add a member (field & method) access instruction. Following instructions
      * can be added using this method:

@@ -6,6 +6,7 @@ import java.lang.System;
 
 public class UBitComp{
 	public int doUnaryBitwiseComplement(int x){
-		return x;
+		int r = ~x;
+		return r;
 	}
 }

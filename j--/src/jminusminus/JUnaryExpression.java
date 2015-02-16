@@ -112,7 +112,7 @@ class JNegateOp extends JUnaryExpression {
  * The AST node for a the Unary Bitwise Complement (~) expression.
  */
 
-class JUBCompOP extends JUnaryExpression {
+class JUBCompOp extends JUnaryExpression {
 
     /**
      * Construct an AST for a UnaryBitwise Complement expression given its line number, and
@@ -125,7 +125,7 @@ class JUBCompOP extends JUnaryExpression {
      *            the operand.
      */
 	
-    public JUBCompOP(int line, JExpression arg) {
+    public JUBCompOp(int line, JExpression arg) {
         super(line, "~", arg);
     }
     
@@ -147,9 +147,12 @@ class JUBCompOP extends JUnaryExpression {
      */
 
     public void codegen(CLEmitter output) {
-        arg.codegen(output);
-        // TODO generate x & 0dFFF
-        output.addNoArgInstruction(INEG);
+    
+    	int max = 2147483647;
+    	output.addLDCInstruction(max);
+    	arg.codegen(output);
+    	output.addNoArgInstruction(ISUB);
+    	
     }
 }
     

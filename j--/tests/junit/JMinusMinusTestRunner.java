@@ -20,7 +20,8 @@ public class JMinusMinusTestRunner {
         suite.addTestSuite(DivisionTest.class);
 
         suite.addTestSuite(LBitShiftTest.class);
-        //suite.addTestSuite(UnaryBitCompTest.class);
+        suite.addTestSuite(UnaryBitCompTest.class);
+        suite.addTestSuite(PalindromeTest.class);
         //End
         suite.addTestSuite(HelloWorldTest.class);
         suite.addTestSuite(FactorialTest.class);

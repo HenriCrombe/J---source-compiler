@@ -1,13 +1,13 @@
 package junit;
 import junit.framework.TestCase;
-import pass.LBitShift;
+import pass.UBitComp;
 
 public class UnaryBitCompTest extends TestCase {
-	private LBitShift leftBitShift;
+	private UBitComp unaryBitwiseComp;
 	
 	protected void setUp() throws Exception {
 		super.setUp();
-		leftBitShift = new LBitShift();
+		unaryBitwiseComp = new UBitComp();
 	}
 	
 	protected void tearDown() throws Exception {
@@ -15,8 +15,11 @@ public class UnaryBitCompTest extends TestCase {
 	}
 	
 	public void testUBitComp() {
-		//this.assertEquals(doUnaryBitwiseComplement(1),-1);
-		//TODO : ADD MORE TEST ? Seems good to me
+		
+		this.assertEquals(unaryBitwiseComp.doUnaryBitwiseComplement(2147483647),0);
+		this.assertEquals(unaryBitwiseComp.doUnaryBitwiseComplement(1),2147483646);
+		this.assertEquals(unaryBitwiseComp.doUnaryBitwiseComplement(0),2147483647);
+		this.assertEquals(unaryBitwiseComp.doUnaryBitwiseComplement(2),2147483645);
 
 	}
 }

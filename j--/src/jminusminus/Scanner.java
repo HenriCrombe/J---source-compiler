@@ -201,9 +201,10 @@ class Scanner {
             	return new TokenInfo(LSHIFT, line);
             }
             else {
-                reportScannerError("Operator < is not supported in j--.");
-                return getNextToken();
+            	nextCh();
+                return new TokenInfo(LT, line);
             }
+      	
         case '\'':
             buffer = new StringBuffer();
             buffer.append('\'');
